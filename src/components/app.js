@@ -5,13 +5,14 @@ import Map from './map.js';
 import SearchResults from './search-results.js';
 
 class App extends React.Component{
-  constructor(props) {
-    super(props);
+  // constructor(props) {
+  //   super(props);
 
-    this.state = {
-      location: {}
-    };
-  }
+  //   this.state = {
+  //     location: {}
+  //   };
+  // }
+
 
   render() {
     return (
@@ -24,11 +25,28 @@ class App extends React.Component{
 };
 
 class Main extends React.Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      location: {}
+    };
+  }
+
+  updateLocation = (newLocation) => {
+    if (this.state.location !== newLocation) {
+      this.setState({location: newLocation});
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+  }
+
   render() {
     return (
       <React.Fragment>
-        <SearchForm />
-        <Map />
+        <SearchForm updateLocation={this.updateLocation}/>
+        <Map location={this.state.location}/>
         <SearchResults />
       </React.Fragment>
     );

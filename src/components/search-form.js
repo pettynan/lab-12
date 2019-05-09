@@ -4,7 +4,7 @@ import superagent from 'superagent';
 class SearchForm extends React.Component{
   render() {
     return(
-      <Form />
+      <Form updateLocation={this.props.updateLocation} />
     )
   }
 };
@@ -14,8 +14,9 @@ class Form extends React.Component{
     super(props);
 
     this.state = {
-      value: ''
+      value: '',
     }
+
 
   }
   render() {
@@ -25,6 +26,7 @@ class Form extends React.Component{
         <input type="text" onChange={this.handleChange} name="search" id="input-search" placeholder="Enter a location here" />
         <button type="submit" onClick={this.fetchCityData}>Explore!</button>
       </form>
+
     )
   }
 
@@ -40,15 +42,18 @@ class Form extends React.Component{
       .query({data: this.state.value})
       .then(result => {
         this.setState({location: result.body});
-        console.log(this.state.location);
+        // console.log(this.state.location);
+        // console.log(this.props);
+        this.props.updateLocation(result.body);
       })
       .catch((error)=> {
         console.log('THERE\'S BEEN AN ERROR WITH SUPERAGENT', error);
       });
-
   };
 
-
+  // componentDidUpdate(prevProps, prevState) {
+  //   console.log(prevProps, prevState);
+  // }
 }
 
 export default SearchForm;
