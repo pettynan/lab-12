@@ -39,15 +39,15 @@ class Main extends React.Component{
     }
   }
 
-  componentDidUpdate(prevProps, prevState) {
-  }
+  // componentDidUpdate(prevProps, prevState) {
+  // }
 
   render() {
     return (
       <React.Fragment>
         <SearchForm updateLocation={this.updateLocation}/>
         <Map location={this.state.location}/>
-        <SearchResults />
+        <SearchResults location={this.state.location}/>
       </React.Fragment>
     );
   };
