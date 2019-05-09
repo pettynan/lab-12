@@ -1,9 +1,8 @@
 import React from 'react';
-import DarkSky from './result.js';
-// import Yelp from './result.js';
-// import Eventbrite from './result.js';
-// import MovieDB from './result.js';
-// import Hiking from './result.js';
+import DarkSky from './results/darksky.js';
+import Yelp from './results/yelp.js';
+import Eventbrite from './results/eventbrite.js';
+import MovieDB from './results/moviedb.js';
 
 class SearchResults extends React.Component{
 
@@ -13,10 +12,9 @@ class SearchResults extends React.Component{
     return (
       <div>
         <DarkSky location={this.props.location}/>
-        {/* <Yelp />
+        <Yelp />
         <Eventbrite />
-        <MovieDB /> */}
-        {/* <Hiking /> */}
+        <MovieDB />
       </div>
     )
   }

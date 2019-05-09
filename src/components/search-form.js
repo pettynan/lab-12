@@ -17,7 +17,6 @@ class Form extends React.Component{
       value: '',
     }
 
-
   }
   render() {
     return (
@@ -34,7 +33,6 @@ class Form extends React.Component{
     this.setState({value: event.target.value});
   };
 
-
   fetchCityData = (event) => {
     event.preventDefault();
 
@@ -42,18 +40,12 @@ class Form extends React.Component{
       .query({data: this.state.value})
       .then(result => {
         this.setState({location: result.body});
-        // console.log(this.state.location);
-        // console.log(this.props);
         this.props.updateLocation(result.body);
       })
       .catch((error)=> {
         console.log('THERE\'S BEEN AN ERROR WITH SUPERAGENT', error);
       });
   };
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   console.log(prevProps, prevState);
-  // }
 }
 
 export default SearchForm;
