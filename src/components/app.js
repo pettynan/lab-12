@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from './header.js'
 
 // function App() {
 //   return (
@@ -40,16 +41,16 @@ class App extends React.Component{
   }
 }
 
-class Header extends React.Component{
-  render() {
-    return (
-      <div>
-        <h1>City Explorer</h1>
-        <p>Enter a location below to learn about the weather, events, restaurants, movies filmed there, and more!</p>
-      </div>
-    )
-  }
-};
+// class Header extends React.Component{
+//   render() {
+//     return (
+//       <div>
+//         <h1>City Explorer</h1>
+//         <p>Enter a location below to learn about the weather, events, restaurants, movies filmed there, and more!</p>
+//       </div>
+//     )
+//   }
+// };
 
 class Main extends React.Component{
   render() {
