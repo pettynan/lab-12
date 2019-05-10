@@ -1,24 +1,26 @@
 import React from 'react';
-import DarkSky from './result.js';
-// import Yelp from './result.js';
-// import Eventbrite from './result.js';
-// import MovieDB from './result.js';
-// import Hiking from './result.js';
+// import superagent from 'superagent';
+
+import DarkSky from './results/darksky.js';
+import Yelp from './results/yelp.js';
+import Eventbrite from './results/eventbrite.js';
+import MovieDB from './results/moviedb.js';
 
 class SearchResults extends React.Component{
 
-
-
   render() {
-    return (
-      <div>
-        <DarkSky location={this.props.location}/>
-        {/* <Yelp />
-        <Eventbrite />
-        <MovieDB /> */}
-        {/* <Hiking /> */}
-      </div>
-    )
+    if (Object.keys(this.props.location).length > 0) {
+      return (
+        <>
+          <DarkSky location={this.props.location}/>
+          <Yelp location={this.props.location}/>
+          <Eventbrite location={this.props.location}/>
+          <MovieDB location={this.props.location}/>
+        </>
+      )
+    } else {
+      return null;
+    }
   }
 }
 
