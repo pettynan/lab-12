@@ -1,0 +1,52 @@
+img {
+  margin: auto;
+  display: block;
+}
+
+/* Style the yelp images */
+div section:nth-child(2) img {
+  height: 75px;
+  padding-bottom: 3px;
+}
+
+/* Style the movie images */
+div section:nth-child(4) img {
+  height: 150px;
+}
+
+.column-container {
+  display: flex;
+}
+
+.column-container section {
+  display: inline-block;
+  width: 100%;
+  border-style: groove;
+  margin: 5px;
+  background-color: #FFF;
+  height: fit-content;
+}
+
+.query-placeholder, form, header, h3 {
+  text-align: center;
+}
+
+form {
+  margin: 10px auto;
+}
+
+.hide {
+  display: none;
+}
+
+#input-search {
+  padding: 5px;
+  border: 1px solid #4484CE;
+  margin-right: 5px;
+  margin-left: 2px;
+}
+
+#map {
+  margin-top: 10px;
+  border: 2px solid #4484CE;
+}

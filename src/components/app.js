@@ -44,11 +44,11 @@ class Main extends React.Component{
 
   render() {
     return (
-      <React.Fragment>
+      <main>
         <SearchForm updateLocation={this.updateLocation}/>
         <Map location={this.state.location}/>
         <SearchResults location={this.state.location}/>
-      </React.Fragment>
+      </main>
     );
   };
 };

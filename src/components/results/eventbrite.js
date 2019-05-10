@@ -40,10 +40,10 @@ class Eventbrite extends React.Component{
     </li>
     );
     return (
-    <> 
+    <section className="column-container"> 
       <h3>Results from the Eventbrite API</h3>
       <ul>{JSXArray}</ul>
-    </>
+    </section>
     )
   };
 }

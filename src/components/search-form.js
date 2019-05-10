@@ -21,7 +21,7 @@ class Form extends React.Component{
   render() {
     return (
       <form id="search-form" /*className="hide"*/>
-        <label htmlFor="search">Search for a location</label>
+        <label htmlFor="search">Search for a location </label>
         <input type="text" onChange={this.handleChange} name="search" id="input-search" placeholder="Enter a location here" />
         <button type="submit" onClick={this.fetchCityData}>Explore!</button>
       </form>
