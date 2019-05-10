@@ -1,23 +1,46 @@
 import React from 'react';
+import superagent from 'superagent';
 
 class DarkSky extends React.Component{
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      weatherArray: [],
+    }
+  }
+
+  getWeather = () => {
+    superagent.get('https://blooming-hollows-11631.herokuapp.com/weather')
+    .query({data: this.props.location})
+    .then(result => {
+      this.setState({weatherArray: result.body});
+    })
+    .catch((error)=> {
+      console.log('THERE\'S BEEN AN ERROR WITH SUPERAGENT', error);
+    });
+  }
 
 
+  componentDidMount() {
+    this.getWeather();
+  }
 
-
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) { 
+      this.getWeather();
+    }
+  }
 
   render() {
-    return (
-      <section className="generic-container">
+      let JSXArray = this.state.weatherArray.map((x, i) => 
+      <li key={i}>The forecast for { x.time } is: { x.forecast }</li>);
+      return (
+      <> 
         <h3>Results from the Dark Sky API</h3>
-        <ul className="generic-results">
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
-          <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </li>
-        </ul>
-      </section>
-    )
+        <ul>{JSXArray}</ul>
+      </>
+      );
   }
 }
 
