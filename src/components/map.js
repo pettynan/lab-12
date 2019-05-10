@@ -5,7 +5,8 @@ class Map extends React.Component{
     super(props);
 
     this.state = {
-      mapURL: 'http://placehold.it/600x300'
+      mapURL: 'http://placehold.it/600x300',
+      mapIsHidden: 'true'
     };
   }
 
@@ -14,14 +15,15 @@ class Map extends React.Component{
 
     if (this.state.mapURL !== newMapURL) {
       this.setState({mapURL: newMapURL});
+      this.setState({mapIsHidden: false})
     }
   }
 
   render() {
     return (
-      <div>
-        <img id="map" className="hide" src={this.state.mapURL} alt="Map of search query" />
-        <h2 className="query-placeholder">Here are the results for {this.props.location.formatted_query}</h2>
+      <div className={this.state.mapIsHidden? 'hide' : ''}>
+        <img id="map" src={this.state.mapURL} alt="Map of search query" />
+        <h2 class="query-placeholder">Here are the results for {this.props.location.formatted_query}</h2>
       </div>
     )
   }

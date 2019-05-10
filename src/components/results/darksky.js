@@ -36,10 +36,10 @@ class DarkSky extends React.Component{
       let JSXArray = this.state.weatherArray.map((x, i) => 
       <li key={i}>The forecast for { x.time } is: { x.forecast }</li>);
       return (
-      <> 
+      <section className="column-container">
         <h3>Results from the Dark Sky API</h3>
         <ul>{JSXArray}</ul>
-      </>
+      </section>
       );
   }
 }

@@ -35,15 +35,15 @@ class MovieDB extends React.Component{
     let JSXArray = this.state.moviesArray.map((x, i) => 
     <li key={i}>
       <p><span>{x.title}</span> was relased on {x.released_on}. Out of {x.total_votes} total votes, {x.title} has an average vote of {x.average_votes} and a popularity score of {x.popularity}.</p>
-      <img src={x.image_url} height="200px" alt={x.name}/>
+      <img src={x.image_url} alt={x.name}/>
       <p>{x.overview}</p>
     </li>
     );
     return (
-    <> 
+    <section className="column-container"> 
       <h3>Results from the MovieDB API</h3>
       <ul>{JSXArray}</ul>
-    </>
+    </section>
     )
   };
 }

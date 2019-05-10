@@ -36,12 +36,12 @@ class Yelp extends React.Component{
     <li key={i}>
     <a href={x.url}>{x.name}</a>
     <p>The average rating is {x.rating} out of 5 and the average cost is {x.price} out of 4</p>
-    <img src={x.image_url} height="200px" alt={x.name}/></li>);
+    <img src={x.image_url} alt={x.name}/></li>);
     return (
-    <> 
+    <section className="column-container"> 
       <h3>Results from the Yelp API</h3>
       <ul>{JSXArray}</ul>
-    </>
+    </section>
     )
   };
 }

@@ -11,12 +11,12 @@ class SearchResults extends React.Component{
   render() {
     if (Object.keys(this.props.location).length > 0) {
       return (
-        <>
+        <div className="column-container">
           <DarkSky location={this.props.location}/>
           <Yelp location={this.props.location}/>
           <Eventbrite location={this.props.location}/>
           <MovieDB location={this.props.location}/>
-        </>
+        </div>
       )
     } else {
       return null;
